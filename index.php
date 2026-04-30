@@ -1,18 +1,20 @@
 <?php
 ini_set('max_execution_time', 300);
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_USER_DEPRECATED & ~E_NOTICE);
-ini_set('display_errors', 0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 /**
  * CodeIgniter
  */
 
-define('ENVIRONMENT', 'production');
+define('ENVIRONMENT', 'development');
 
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_USER_DEPRECATED & ~E_NOTICE);
-		ini_set('display_errors', 0);
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
 	break;
 
 	case 'testing':
