@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["php82", "php82Extensions.mysqli", "php82Extensions.pdo_mysql"]
+nixPkgs = ["php82", "php82Extensions.mysqli", "php82Extensions.pdo_mysql", "php82Extensions.curl", "php82Extensions.mbstring", "php82Extensions.zip", "php82Extensions.gd"]
 
 [phases.build]
 cmds = ["mkdir -p logs"]
 
 [start]
-cmd = "php -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_STRICT' -d display_errors=0 -S 0.0.0.0:${PORT:-8080} index.php"
+cmd = "php -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_USER_DEPRECATED & ~E_NOTICE' -d display_errors=0 -S 0.0.0.0:${PORT:-8080} -t ."
