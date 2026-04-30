@@ -1,0 +1,22 @@
+{
+  "$schema": "https://railpack.com/schema.json",
+  "provider": "php",
+  "packages": {
+    "apt": [
+      "ca-certificates",
+      "git",
+      "unzip",
+      "zip"
+    ]
+  },
+  "steps": {
+    "build": {
+      "commands": [
+        "mkdir -p app/logs app/cache logs"
+      ]
+    }
+  },
+  "deploy": {
+    "startCommand": "php -d extension=mysqli -d extension=pdo_mysql -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_USER_DEPRECATED & ~E_NOTICE' -d display_errors=0 -S 0.0.0.0:${PORT:-8080} -t ."
+  }
+}
